@@ -1,0 +1,663 @@
+/* ОБЩИЕ ЭЛЕМЕНТЫ и/или ФОРМАТЫ*/
+body{
+    margin:0;
+    padding: 0;
+    font-family: Work Sans;
+    line-height: 1.5;
+}
+/* Фоновые рисуки: полосы и "лекала" */
+.main_bkgr{
+    background:
+        url('../images/12-col-grid.png') no-repeat center / 61% 100%,
+        url('../images/bg_shape5.png') no-repeat right 1% / 48%; /* Фоновый голубой рисунок. Остальные похожие рисунки позиционируются относительно других блоков */ 
+    position: relative;
+}
+textarea {
+resize: none;
+}
+/* Формат по умолчанию для всех h2 на сайте */
+h2{
+    margin:0;
+    color:#314584;
+    font-weight: 600;
+    font-size: 26px;
+}
+h3{
+   margin:0;
+   color:#314584;
+   font-weight: 600; 
+   font-size: 15px;
+}
+
+/* Навигационные стрелки "вправо-влево" */
+.l_r_arrows {
+    display:flex;
+    justify-content:space-between;
+    width:6%;
+}
+/* Наведение на навигационные стрелки */
+.l_r_arrows a:nth-of-type(1):hover{
+    animation-name: left_arrow;
+    animation-duration: .7s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.l_r_arrows a:nth-of-type(2):hover{
+    animation-name: right_arrow;
+    animation-duration: .7s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; /* Параметр для плавной бесконечной анимации */
+}
+/* Параметры анимации стрелок */
+@keyframes right_arrow {
+     from {
+        transform: scale(1);
+        transform-origin: left;
+  }
+    to {
+        transform: scale(1.5);
+        transform-origin: left;
+}
+}
+@keyframes left_arrow {
+     from {
+        transform: scale(1);
+        transform-origin: right;
+  }
+    to {
+        transform: scale(1.5);
+        transform-origin: right;
+}
+}
+/* Параметры для класса .upper (4 и 5 блоки) */
+.container .upper{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    position: relative;
+}
+/* Наведение на элементы меню */
+nav a:hover{
+    text-decoration: underline;
+    cursor:pointer;
+    color:#ff3946;
+    transition:0.3s;
+}
+
+/* ЛОГОТИП */
+.logo{
+    position: absolute;
+    margin:3.4vw 0 0 6.4vw;
+}
+
+/* HEADER*/
+header{
+  display:flex;
+  width: 61%; /* равна ширине фоновых полос */
+  margin: 0 auto;
+  justify-content:space-between;
+  align-items:flex-end;
+  position: relative;
+}
+header nav {
+/* Фон состоит из 12 полос и 11 оступов менжду ними. Ширина отступа равна половине ширины полосы.
+Отсюда арифмитические выражения для последующих вычислений CALC, которые связаны с шириной фона с полосками (т.е. 61%) */
+flex-basis: calc(61% * 27 / 35);
+}
+header nav ul {
+    display:flex;
+    margin:3.4vw 0 0 0;
+    padding-left:0; /* Убираем левый паддинг списка */
+    list-style: none;
+    justify-content:space-between;
+}
+header nav ul li a{
+    text-decoration: none;
+    color:#314584;
+    font-weight: 600; 
+    font-size: 15px;
+    transition:1s ease;
+}                  
+    /* Выбор языка */
+    header select{
+    flex-basis:15vw;
+    /*Убираем рамку, стрелку, фон, границы выпадающего меню, меняем шрифт */
+    appearance:none;
+    -moz-appearance:none;
+    border: none;
+    background: none;
+    outline: none;
+    color:#314584;
+    font-weight: 600;
+    /* Стрелка выпадающего меню для выбора языка */
+    background-image: url('../images/arrow_down.png');
+    background-repeat: no-repeat;
+    background-position: 1.5vw bottom;
+    background-size:10px;
+}
+/* Меняем форматирование текста внутри выпадающего меню */
+header select option {
+    font-family: Work Sans;
+    font-weight: 600;
+}
+/* Блок Contact Us и стрелка*/
+header .cont_us_box {
+    display:block;  
+    /* Положение блока с текстом Contact Us относительно селектора HEADER */
+    position: absolute;
+    top:calc(50% - .5vh);
+    right:5px;
+    /* Параметры обводки вокруг текста Contact us */
+    padding:2.5% 5.5% 2.5% 2.5%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius:5px;
+    border:transparent;
+    box-shadow: 3px 6px 10px 5px rgba(0,0,0,5%);
+    /* СТРЕЛКА */
+    background-image: url('../images/red_arrow.png');
+    background-repeat: no-repeat;
+    /*Размер стрелки и ее положение*/
+    background-size:1.5vw;
+    background-position: 90% 60%;
+    transition:.5s ease;
+}
+header .cont_us_box a{
+    color:#ff3946;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+}
+/* Наведение на блок Contact us со стрелкой */
+.cont_us_box:hover{
+    transform: scale(1.2);
+    text-decoration: underline;
+    cursor: pointer;
+    border-radius:40px / 40px;
+    border:1px solid #ff3946;
+    box-shadow:none;
+    background-color:#fff;
+    transition:.5s;
+}
+/* ОБЩАЯ разметка блоков между header-ом и footer-ом */
+.container{
+    display:grid;
+    grid-auto-columns:61%;
+    justify-content:center;
+}
+
+/* ПЕРВЫЙ БЛОК: Spirit */
+.container .spirit{
+    margin-top: 300px;
+    display: grid;
+    row-gap:15px; /* Отступ между элементами grid-контейнера */
+    position:relative;     
+}
+.container .spirit h1{ /* Форматируем текст заголовка блока Spirit */
+    width:calc(61% / 2);
+    color:#314584;
+}
+.container .spirit > p {
+    color:#7d7987;
+    font-size: 15px;
+    width: 50%;
+}
+.container .spirit .spirit_bottom {
+    display: flex;
+    justify-content:space-between;    
+    width:calc(61% / 2); 
+}
+.container .spirit .spirit_bottom p{
+    transition:.5s ease; /* Плавный возврат после наведения */
+}
+.container .spirit .spirit_bottom p a{
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    color:#464e90;
+}
+.container .spirit .spirit_bottom > p:first-child a{
+    margin-left: 3px;
+    padding:15px 25px;
+    border-radius:30px / 30px;
+    background-color: #ff3946;
+    color:#fff;
+}
+.container .spirit .spirit_bottom p:first-child:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+    transition:.5s;
+}     
+/* Создание эффекта нажатия за счет внутренней тени + эффект смещения текста при нажатии кнопки
+за счет тени цвета = цвету исходного текста и прозрачности цвета исходного текста */
+.container .spirit .spirit_bottom > p:first-child a:active{
+    box-shadow: 5px 5px 5px -3px rgba(0,0,0,.6) inset;
+    text-shadow: -1.5px -1.5px 0px #fff;
+    color:transparent;
+}
+.container .spirit .spirit_bottom > p:last-child:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+    transition:.5s;
+    text-decoration: underline;
+}
+.container .spirit img{
+    top: -60%;
+    right:calc(61% * 13 / -35);
+    position: absolute;
+    height: 75vh;
+}
+/* ВТОРОЙ БЛОК Anything */
+
+.container .anth {
+    margin-top: 300px;
+    display: flex;
+    justify-content:space-between;
+    height:300px;
+    position: relative;
+}
+/* Фоновый рисунок 4 */
+.container .anth #bg_shape4 {
+    top: -30px;
+    left: -32%;
+    position: absolute;
+    width:23%;
+}
+.container .anth .anth_left {
+    flex-basis: calc(61% * 18 / 35);
+}
+.container .anth .anth_left p{
+    margin: 40px 0 0 3px;
+    transition:.5s ease;
+}
+/* Кнопка GET IN TOUCH */
+.container .anth .anth_left a{
+    padding:10px 25px;
+    border-radius: 17px / 17px;
+    background-color: #ff3946;
+    color:#ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    margin-left: 2px;
+}
+.container .anth .anth_left p:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    transition:.5s;
+    margin-left: 15px;
+}     
+.container .anth .anth_left a:active{
+    box-shadow: 5px 5px 5px -3px rgba(0,0,0,.6) inset;
+    text-shadow: -1.5px -1.5px 0px #fff;
+    color:transparent;
+}
+.container .anth .anth_middle_right{
+    display:flex;
+    flex-direction:column;      
+    flex-basis:23%;
+    align-items:flex-start;
+    justify-content:space-evenly;
+    padding:1.5vw 2.5vw 2vw 2.5vw;
+    background-color: rgba(255, 255, 255, 0);
+    border:transparent;
+    box-shadow: 3px 6px 10px 5px rgba(0,0,0,5%);
+    /* Цвет крупного и мелкого текста */
+    color:#314584;  
+}
+            /* размер мелкого текста */
+            .container .anth .anth_middle_right p {
+                font-size: 13px;
+                margin-top:20px;
+            }
+    .container .anth .anth_middle_right h3{
+        font-size: 18px;
+        width:75%;
+        margin-top:40px;
+}
+
+/* ТРЕТИЙ БЛОК: Fine Words */
+.fine_words{
+    margin-top:235px;
+display: grid;
+    /* ширина блока Fine Words */
+    grid-template-columns: calc(61% *  28 / 35);
+    /* Горизонтальный отступ между элементами grid-контейнера */
+    grid-row-gap: 30px;
+    /* Ориентируем содержимое grid-контейнер */
+    place-content:start end;
+    position: relative;
+}
+/* Фоновый рисунок 3 */
+.fine_words #bg_shape3{
+    top: -250px;
+    right:-32%;
+    position: absolute;
+    width:29%;
+    height:auto;
+}
+/* Форматируем три текстовые блока */
+.container .fine_words p:nth-of-type(1){
+    margin:0;
+    text-transform: uppercase;
+    color:#ff3946;
+    font-weight: 600;
+    font-size: 15px;
+}
+.container .fine_words p:nth-of-type(2){
+    color:#464e90;
+    font-weight: 400;
+    font-size: 15px;
+    padding-right: 10px;
+}
+.container .fine_words h2{
+    width: 48%;
+}
+/* Настройка и позиционирование изображения */
+.container .fine_words img:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: calc(61% * 6 / -25);
+    width:54%;
+}   
+/* Навигационные стрелки */
+.fine_words .l_r_arrows {
+    display:flex;
+    width: calc(61% / 5);
+}
+
+/* ЧЕТВЕРТЫЙ БЛОК: Creative Work */
+
+/* Задаем общую разметку 4-му блоку: 1 колонка и 3 ряда разной высоты */   
+.container .cr_wrk {
+    margin-top: 150px;
+    display:grid;
+    grid-template-columns: auto;
+    grid-template-rows: 150px 450px auto;
+    align-items:start;
+}
+.upper #bg_shape2{
+    top: 35px;
+    left:-32%;
+    position: absolute;
+    width:80%;
+    height:auto;
+    z-index: -1;
+}
+.cr_wrk .upper h2 {
+width:30%;
+}
+/* Задаем ширину блока с "изображениями" (100% по ширине фоновых полос) */
+.container .cr_wrk_imgs img{
+    width:100%;
+    transition:.5s ease;
+}      
+/* Задаем разметку блоку с "изображениями": 3 колонки. Два ряда создаются автоматически */  
+.container .cr_wrk_imgs {
+    display: grid;
+    grid-template-columns:repeat(3, auto);
+    grid-gap:calc(61% * 3 / 70); /* Отступ между изображениями. Выбираем именно %% для создания одинковых оступов по вертикали и горизонтали */
+    align-content:end;
+}
+.container .cr_wrk_imgs img:hover{
+    transform:scale(1.1) rotate(-10deg);
+    transition:0.5s;
+    border:2px solid #ff3946;
+}
+/* Форматируем и ориентируем текст-ссылку "More of These." */
+.container .cr_wrk p{
+    text-align: center;
+}
+.container .cr_wrk  p a{
+    text-decoration: none;
+    color: #ff4359;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;   
+    transition:.3s ease;
+}
+.container .cr_wrk  p a:hover{
+    text-decoration: underline;
+    color: #00f;
+    font-size: calc(12px * 1.2);
+    transition:.3s;
+}
+/* ПЯТЫЙ БЛОК: Blog/News */
+/* Общие параметры тэга section */
+.container section {
+    margin-top: 100px;
+    display:grid;
+    grid-template-columns: auto;
+    grid-template-rows: 50px 80px 300px;
+    align-items:start;
+}
+.upper #bg_shape1{
+    top: 35px;
+    right:-32%;
+    position: absolute;
+    width:36%;
+    height:auto;
+    z-index: -1;
+}
+.container section > p{
+    text-transform: uppercase;
+    color: #ff4359;
+    font-weight: 600;
+    font-size: 15px;
+}
+.container section .news_blox {
+    display:flex;
+    justify-content: space-between;
+}
+       
+/* Параметры тэгов article */
+.container section article {
+    display:flex;
+    flex-direction:column;
+    flex-basis:25%;
+    justify-content:flex-start;
+    height:230px;
+    border:transparent;
+    box-shadow: 3px 6px 10px 5px rgba(0,0,0,5%);
+    padding: 25px 30px;
+    color:#464e90;
+    position: relative;
+    mix-blend-mode: multiply;
+    background-color: #fff;
+        
+}
+.news_blox article p{
+    font-size: 13px;
+    width:90%;
+}
+.news_blox article .nav_arrow {
+    position: absolute;
+    bottom: 30px;
+    right:8%;
+}
+.news_blox article .nav_arrow a #white_arr{
+    display: none;
+}
+       
+/* Параметры при наведении на нижний блок*/
+.news_blox article:hover{
+    background-color:#ff4359; /* изменение цвета фона текстовой коробки */
+    color:#fff5ff;  /* изменение цвета текста текстовой коробки */
+}
+.news_blox article:hover h3{
+    color:white;
+}
+/* Настраиваем стрелки при наведении */
+.news_blox article:hover a #red_arr {
+    display:none; /* Исчезает красная стрелка */
+}
+.news_blox article:hover a #white_arr {
+    display:inline-block; /* inline-block позволяет белой стрелке появляться на том же месте, где была красная */
+    cursor: pointer;
+}
+/* Анимация белой стрелки при наведении */
+.news_blox article:hover a #white_arr{
+    animation-name: right_arrow;
+    animation-duration: .7s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; /* Параметр для плавной бесконечной анимации */
+}
+
+/* ШЕСТОЙ БЛОК: Get In Touch */
+.in_touch {
+    margin-top: 100px;
+}
+.in_touch > p {
+    text-transform: uppercase;
+     color:#ff3946;
+     font-weight: 600;
+     font-size: 15px;
+}
+.in_touch .email {
+    display:flex;
+    height:230px;
+    justify-content:flex-start;
+    flex-wrap:wrap;
+    align-items:flex-end;
+    /* border: 1px solid navy; */
+}
+.in_touch .email span {
+    padding:0 10px 0 15px; 
+    color:#314584;
+    font-weight: 600;
+    font-size: 13px;
+}
+.in_touch .field{
+    display:flex;
+    flex-basis:calc(61% * 4 / 5);
+    align-items:center;
+    background-color: #f4fafe;
+    height:50px;
+    mix-blend-mode: multiply;
+}
+.in_touch .subject{
+    margin-left: calc(61% * 11 / 280);
+}
+.in_touch .message{
+    flex-basis:61vw;
+    /* max-width:100% /* для медиа запросов */
+    align-items:start;
+    height:110px;
+}
+.in_touch .message span{
+    padding-top: 10px;
+}
+.in_touch .message textarea {
+    height:80%;
+    width:49vw;
+    margin:auto;
+    appearance:none;
+    -moz-appearance:none;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 3px;
+    font-family: tahoma;
+}
+.in_touch .address input, .subject input{
+    width: 20vw;
+    height: 50%;
+    appearance:none;
+    -moz-appearance:none;
+    border: none;     
+    outline: none;
+    background: none;
+    font-family: tahoma;
+    padding: 0 3px;
+}
+.in_touch .address input:hover, .subject input:hover, .message textarea:hover{
+    background-color: #fff;
+    border: 1px solid #dbd4e2;
+    border-radius: 5px;
+}
+.in_touch form button {
+    display: block;
+    margin: 50px auto;
+    appearance:none;
+    -moz-appearance:none;
+    border: none;
+    background: none;
+    outline: none;
+    padding:10px 25px;
+    border-radius: 17px / 17px;
+    background-color: #ff3946;
+    color:#fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    position: relative;
+    transition:0.5s ease;
+}
+
+.in_touch form button:hover{
+transform: scale(1.2);
+transition:0.5s;
+}
+
+.in_touch form button:active{
+  box-shadow: 5px 5px 5px -3px rgba(0,0,0,.6) inset;
+  background-color: #ff3946;
+  transition:0s;
+}
+.in_touch form button:active span{
+    text-shadow: -1.5px -1.5px 0px #fff;
+    color:transparent;
+}
+
+/* FOOTER */
+footer {
+    display:grid; /* Используется Grid, а не Flex, т.к. эленты подвала располагаются по вертикали + чтобы не писать еще строку кода flex-direction:column; */
+    justify-items:center;
+    background-color: #314584;
+    mix-blend-mode: saturation;
+}
+footer p:nth-of-type(1){
+    margin-top:50px;
+    text-transform: uppercase;
+    color:#fff;
+    font-size: 15px;
+    font-weight: 600;
+}
+footer p:nth-of-type(2){
+    margin-top:-15px;
+    text-transform: uppercase;
+    color:#ff3946;
+    font-size: 40px;
+    font-weight: 600;
+}
+footer nav {
+        width: calc(61% * 17 / 35);
+}
+footer nav ul {
+    display:flex;
+    margin-top: -20px;
+    padding-left:0;
+    list-style: none;
+    justify-content:space-between;
+}
+footer nav ul li a{
+    text-decoration: none;
+    color:#fff;
+    font-weight: 600; 
+    font-size: 15px;
+    transition:1s ease;
+}  
+footer p:nth-of-type(3){
+    margin-top:25px;
+    color:#fff;
+    font-size: 13px;
+    font-weight: 400;
+}  
+footer .sm_icons {
+    margin: 15px 0 40px 0;   
+}
+footer .sm_icons a{
+    color:#fff;
+    font-size: 25px; 
+    margin:0 2.15vw;            
+}   
