@@ -179,6 +179,7 @@ header .cont_us_box a{
     background-color:#fff;
     transition:.5s;
 }
+
 /* ОБЩАЯ разметка блоков между header-ом и footer-ом */
 .container{
     display:grid;
@@ -247,8 +248,8 @@ header .cont_us_box a{
     position: absolute;
     height: 75vh;
 }
-/* ВТОРОЙ БЛОК Anything */
 
+/* ВТОРОЙ БЛОК Anything */
 .container .anth {
     margin-top: 300px;
     display: flex;
