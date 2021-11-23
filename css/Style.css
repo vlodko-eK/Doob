@@ -9,13 +9,14 @@ body{
 .main_bkgr{
     background:
         url('../images/12-col-grid.png') no-repeat center / 61% 100%,
-        url('../images/bg_shape5.png') no-repeat right 1% / 48%; /* Фоновый голубой рисунок. Остальные похожие рисунки позиционируются относительно других блоков */ 
+        url('../images/bg_shape5.png') no-repeat right 1% / 48%; /* Верхняя фоновая голубая фигура. Остальные похожие фигуры позиционируются относительно других блоков */ 
     position: relative;
 }
+/* Поле для ввода текста сообщения e-mail */
 textarea {
 resize: none;
 }
-/* Формат по умолчанию для всех h2 на сайте */
+/* Формат по умолчанию для всех h2, h3 на сайте */
 h2{
     margin:0;
     color:#314584;
@@ -252,7 +253,7 @@ header .cont_us_box a{
     margin-top: 300px;
     display: flex;
     justify-content:space-between;
-    height:300px;
+    height:310px;
     position: relative;
 }
 /* Фоновый рисунок 4 */
@@ -262,12 +263,9 @@ header .cont_us_box a{
     position: absolute;
     width:23%;
 }
+/* Левый блок */
 .container .anth .anth_left {
     flex-basis: calc(61% * 18 / 35);
-}
-.container .anth .anth_left p{
-    margin: 40px 0 0 3px;
-    transition:.5s ease;
 }
 /* Кнопка GET IN TOUCH */
 .container .anth .anth_left a{
@@ -280,6 +278,10 @@ header .cont_us_box a{
     font-size: 13px;
     margin-left: 2px;
 }
+.container .anth .anth_left p{
+    margin: 40px 0 0 3px;
+    transition:.5s ease;
+}
 .container .anth .anth_left p:hover {
     transform: scale(1.2);
     cursor: pointer;
@@ -291,28 +293,30 @@ header .cont_us_box a{
     text-shadow: -1.5px -1.5px 0px #fff;
     color:transparent;
 }
+/* Средний и правый блоки */
 .container .anth .anth_middle_right{
     display:flex;
     flex-direction:column;      
     flex-basis:23%;
     align-items:flex-start;
     justify-content:space-evenly;
-    padding:1.5vw 2.5vw 2vw 2.5vw;
+    padding:1.5vw;
+    margin-right: 15px;
     background-color: rgba(255, 255, 255, 0);
     border:transparent;
     box-shadow: 3px 6px 10px 5px rgba(0,0,0,5%);
     /* Цвет крупного и мелкого текста */
-    color:#314584;  
+    color:#314584;
 }
-            /* размер мелкого текста */
-            .container .anth .anth_middle_right p {
-                font-size: 13px;
-                margin-top:20px;
-            }
-    .container .anth .anth_middle_right h3{
-        font-size: 18px;
-        width:75%;
-        margin-top:40px;
+ /* размер мелкого текста */
+.container .anth .anth_middle_right p {
+    font-size: 13px;
+    margin-top:20px;
+}
+.container .anth .anth_middle_right h3{
+    font-size: 18px;
+    width:75%;
+    margin-top:40px;
 }
 
 /* ТРЕТИЙ БЛОК: Fine Words */
@@ -421,6 +425,7 @@ width:30%;
     font-size: calc(12px * 1.2);
     transition:.3s;
 }
+
 /* ПЯТЫЙ БЛОК: Blog/News */
 /* Общие параметры тэга section */
 .container section {
@@ -476,8 +481,7 @@ width:30%;
 }
 .news_blox article .nav_arrow a #white_arr{
     display: none;
-}
-       
+}       
 /* Параметры при наведении на нижний блок*/
 .news_blox article:hover{
     background-color:#ff4359; /* изменение цвета фона текстовой коробки */
