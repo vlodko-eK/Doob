@@ -34,20 +34,20 @@ h3{
 .l_r_arrows {
     display:flex;
     justify-content:space-between;
-    width:6%;
+    width:6%;   
 }
 /* Наведение на навигационные стрелки */
 .l_r_arrows a:nth-of-type(1):hover{
     animation-name: left_arrow;
     animation-duration: .7s;
     animation-iteration-count: infinite;
-    animation-direction: alternate;
+    animation-direction: alternate; /* Параметр для плавной бесконечной анимации */
 }
 .l_r_arrows a:nth-of-type(2):hover{
     animation-name: right_arrow;
     animation-duration: .7s;
     animation-iteration-count: infinite;
-    animation-direction: alternate; /* Параметр для плавной бесконечной анимации */
+    animation-direction: alternate; 
 }
 /* Параметры анимации стрелок */
 @keyframes right_arrow {
@@ -179,11 +179,10 @@ header .cont_us_box a{
     background-color:#fff;
     transition:.5s;
 }
-
 /* ОБЩАЯ разметка блоков между header-ом и footer-ом */
 .container{
     display:grid;
-    grid-auto-columns:61%;
+    grid-auto-columns:61%; /* равна ширине фоновых полос */
     justify-content:center;
 }
 
@@ -523,7 +522,6 @@ width:30%;
     justify-content:flex-start;
     flex-wrap:wrap;
     align-items:flex-end;
-    /* border: 1px solid navy; */
 }
 .in_touch .email span {
     padding:0 10px 0 15px; 
